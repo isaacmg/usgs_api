@@ -5,7 +5,7 @@ require "json"
 	# Get the url from http://waterservices.usgs.gov/rest/IV-Test-Tool.html 
 	xml_file = open('http://waterservices.usgs.gov/nwis/iv/?format=waterml,1.1&sites=01037000&parameterCd=00060,00065')
  	doc = Nokogiri::XML(xml_file)
- 	#This will print the flow data and the gage height. 
+ 	# This will print the flow data and the gage height (and any other parameters you requested).  
  	doc.xpath('//ns1:values/ns1:value').each do |node|
  	puts node.text
  	end 
